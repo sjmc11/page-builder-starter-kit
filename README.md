@@ -6,6 +6,8 @@ This directory contains a starter kit and reference implementation for building 
 
 This starter kit is extracted from the core blocks, custom fields, and basic layout examples used in the vue-wswg-editor demos project. It serves as a reference implementation and starting point for developers building pages using the vue-wswg-editor library in their projects.
 
+The UI components in this starter kit are based on [HyperUI](https://www.hyperui.dev/), a collection of free, open-source Tailwind CSS components. HyperUI provides ready-to-use components that require no installation or configuration, making it perfect for rapid development.
+
 ## Structure
 
 ```
@@ -99,6 +101,7 @@ A custom rich text editor field component using TipTap:
 ## Configuration
 
 This starter kit does not include:
+
 - `package.json` - Dependencies should be managed in your parent project
 - TypeScript configuration - Should be configured in your parent project
 - Linting/formatting configuration - Should be configured in your parent project
@@ -108,6 +111,7 @@ All TypeScript checks, linting, and formatting should be configured in your pare
 ## Customization
 
 Feel free to:
+
 - Modify existing blocks to match your design system
 - Add new blocks following the same patterns
 - Create additional custom fields as needed
@@ -117,13 +121,17 @@ Feel free to:
 ## Documentation
 
 For more information on using vue-wswg-editor, see:
+
 - [Vue WSWG Editor Documentation](https://vue-wswg-editor.com)
 - [Blocks Guide](/guide/blocks)
 - [Fields Guide](/guide/fields)
 - [Custom Fields Guide](/guide/custom-fields)
 - [Layouts Guide](/guide/layouts)
 
+## Credits
+
+The UI components in this starter kit are based on [HyperUI](https://www.hyperui.dev/), a free, open-source collection of Tailwind CSS components created by Mark Mead. HyperUI provides copy-paste components for building modern web applications without requiring installation or configuration.
+
 ## License
 
 This starter kit follows the same license as the vue-wswg-editor library.
-
