@@ -130,7 +130,7 @@ For more information on using vue-wswg-editor, see:
 
 ## Credits
 
-The UI components in this starter kit are based on [HyperUI](https://www.hyperui.dev/), a free, open-source collection of Tailwind CSS components created by Mark Mead. HyperUI provides copy-paste components for building modern web applications without requiring installation or configuration.
+- [HyperUI](https://www.hyperui.dev/)
 
 ## License
 
