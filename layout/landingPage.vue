@@ -6,7 +6,7 @@
             <!-- page blocks will be rendered here -->
          </slot>
       </main>
-      <div class="graphics z-0">
+      <div class="graphics pointer-events-none z-0">
          <img src="../../assets/marketing/shape-1.png" alt="branding" class="shape-1" />
          <img src="../../assets/marketing/shape-2.png" alt="branding" class="shape-2" />
          <img src="../../assets/marketing/shape-3.png" alt="branding" class="shape-3" />
@@ -16,7 +16,12 @@
          <img src="../../assets/marketing/shape-7.png" alt="branding" class="shape-7" />
          <img src="../../assets/marketing/shape-8.png" alt="branding" class="shape-8" />
       </div>
-      <AppFooter />
+      <AppFooter
+         :logo="logo"
+         :footerDescription="footerDescription"
+         :footerLinks="footerLinks"
+         :footerSocialLinks="footerSocialLinks"
+      />
    </div>
 </template>
 
@@ -30,8 +35,9 @@ import { useHead } from "@vueuse/head";
 defineOptions({
    label: "Landing page layout",
    fields: {
+      // Branding options
+      logo: createField.image({ label: "Logo", required: true, group: "branding" }),
       // Header options
-      logo: createField.image({ label: "Logo", required: true, group: "header" }),
       logoWidth: createField.range({
          label: "Logo Width",
          min: 50,
@@ -67,6 +73,45 @@ defineOptions({
             },
          }
       ),
+      // Footer options
+      footerDescription: createField.textarea({
+         label: "Footer Description",
+         rows: 5,
+         required: true,
+         group: "footer",
+      }),
+      footerLinks: createField.repeater(
+         {
+            text: createField.text({ label: "Text", required: true }),
+            url: createField.url({ label: "URL", required: true }),
+         },
+         { label: "Footer Links", group: "footer", repeaterFieldLabel: "text" }
+      ),
+      footerSocialLinks: createField.object(
+         {
+            facebook: createField.text({
+               label: "Facebook URL",
+               placeholder: "https://www.facebook.com/your-page",
+            }),
+            twitter: createField.url({
+               label: "Twitter URL",
+               placeholder: "https://www.twitter.com/your-page",
+            }),
+            instagram: createField.url({
+               label: "Instagram URL",
+               placeholder: "https://www.instagram.com/your-page",
+            }),
+            github: createField.url({
+               label: "GitHub URL",
+               placeholder: "https://www.github.com/your-page",
+            }),
+         },
+         {
+            label: "Footer Social Links",
+            description: "Configure the footer social links",
+            group: "Socials",
+         }
+      ),
       // Meta fields
       title: createField.text({ label: "Title", required: true, group: "meta" }),
       meta: createField.object(
@@ -87,12 +132,20 @@ const props = withDefaults(
       links: { text: string; url: string; style: "solid" | "text" }[];
       meta: Record<string, any>;
       title?: string; // Page title
+      footerDescription?: string;
+      footerLinks?: { text: string; url: string }[];
+      footerSocialLinks?: Record<string, string | undefined>;
    }>(),
    {
       logo: "",
       logoWidth: 144,
       links: () => [],
       meta: () => ({}),
+      footerDescription: "",
+      footerLinks: () => [],
+      footerSocialLinks: () => ({
+         facebook: "",
+      }),
    }
 );
 
