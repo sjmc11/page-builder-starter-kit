@@ -28,7 +28,11 @@
                   <a
                      :href="link.url"
                      class="rounded-full px-4 py-2.5"
-                     :class="link.style === 'solid' ? 'bg-indigo-700 text-white' : 'text-gray-600 hover:bg-gray-100'"
+                     :class="
+                        link.style === 'solid'
+                           ? 'bg-indigo-700 text-white hover:bg-indigo-800'
+                           : 'text-gray-600 hover:bg-gray-100'
+                     "
                   >
                      {{ link.text }}
                   </a>

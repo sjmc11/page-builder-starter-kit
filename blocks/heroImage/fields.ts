@@ -85,67 +85,20 @@ export default {
       }
    ),
    margin: createField.margin({ group: "appearance" }),
-   isDarkMode: createField.boolean({
-      label: "Dark mode",
-      group: "appearance",
-   }),
-   image: createField.text({
-      description: "Hero section image data",
-      placeholder: "{}",
+   image: createField.image({
+      description: "Upload a hero image",
       group: "image",
       label: "Image",
-      responsive: true,
    }),
-   checkboxDemo: createField.checkbox(
+   imagePosition: createField.select(
       [
-         { label: "Option 1", value: "option1", id: "option1" },
-         { label: "Option 2", value: "option2", id: "option2" },
-         { label: "Option 3", value: "option3", id: "option3" },
+         { label: "Left", value: "left", id: "image-left" },
+         { label: "Right", value: "right", id: "image-right" },
       ],
       {
-         label: "Checkbox Demo",
-         group: "demo",
-         description: "Checkbox demo",
-         clearable: true,
-      }
-   ),
-   radioDemo: createField.radio(
-      [
-         { label: "Option 1", value: true, id: "option1" },
-         { label: "Option 2", value: false, id: "option2" },
-         { label: "Option 3", value: undefined, id: "option3" },
-      ],
-      {
-         label: "Radio Demo",
-         group: "demo",
-         description: "Radio demo",
-         clearable: true,
-      }
-   ),
-   colourDemo: createField.color({
-      label: "Colour Demo",
-      group: "demo",
-      description: "Colour demo",
-   }),
-   rangeDemo: createField.range({
-      label: "Range Demo",
-      group: "demo",
-      description: "Range demo",
-      min: 0,
-      max: 100,
-      step: 10,
-   }),
-   repeaterDemo: createField.repeater(
-      {
-         text: createField.text({
-            label: "Text",
-            placeholder: "Text",
-         }),
-      },
-      {
-         label: "Repeater Demo",
-         group: "demo",
-         description: "Repeater demo",
+         default: "right",
+         label: "Image position",
+         group: "image",
       }
    ),
 };

@@ -51,13 +51,13 @@ defineOptions({
    label: "FAQs section",
    fields: {
       heading: createField.text({
-         maxLength: 50,
+         maxLength: 140,
          placeholder: "FAQs heading",
          label: "Heading",
          group: "content",
       }),
       description: createField.text({
-         maxLength: 50,
+         maxLength: 240,
          placeholder: "FAQs description",
          label: "Description",
          group: "content",
@@ -65,7 +65,7 @@ defineOptions({
       faqs: createField.repeater(
          {
             question: createField.text({
-               maxLength: 50,
+               maxLength: 140,
                placeholder: "What is the meaning of life?",
                label: "Question",
             }),

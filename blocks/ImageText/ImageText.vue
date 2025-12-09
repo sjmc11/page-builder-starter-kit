@@ -2,7 +2,7 @@
    <section class="image-text">
       <div class="page-container">
          <div class="@3xl:grid-cols-2 grid overflow-hidden rounded-xl bg-gray-100">
-            <div class="@3xlmd:p-12 @4xl:px-16 @5xl:py-24 p-8">
+            <div class="@3xlmd:p-12 @4xl:px-16 @5xl:py-24 flex flex-col justify-center p-8">
                <div
                   class="mx-auto max-w-xl"
                   :class="{
@@ -20,7 +20,7 @@
                   <div v-if="ctaText" class="@xl:mt-7 mt-4">
                      <a
                         :href="ctaLink"
-                        class="focus:outline-hidden inline-block rounded-sm bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:ring-2 focus:ring-yellow-400"
+                        class="focus:outline-hidden inline-block rounded-md bg-indigo-600 px-12 py-4 text-sm font-medium text-white transition hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400"
                      >
                         {{ ctaText }}
                      </a>

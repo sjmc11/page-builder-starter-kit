@@ -110,6 +110,40 @@ useHead({
       { name: "twitter:card", content: "summary_large_image" },
    ],
 });
+
+// Smooth scroll anchor links in this template
+import { onMounted, onUnmounted } from "vue";
+
+function handleSmoothScroll(e: Event) {
+   const target = e.target as HTMLElement;
+   const link = target.closest("a");
+
+   if (!link) return;
+
+   const href = link.getAttribute("href");
+
+   // Only handle anchor links (starting with #)
+   if (href && href.startsWith("#") && href.length > 1) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+         targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+         });
+      }
+   }
+}
+
+onMounted(() => {
+   document.addEventListener("click", handleSmoothScroll);
+});
+
+onUnmounted(() => {
+   document.removeEventListener("click", handleSmoothScroll);
+});
 </script>
 
 <style lang="scss" scoped>

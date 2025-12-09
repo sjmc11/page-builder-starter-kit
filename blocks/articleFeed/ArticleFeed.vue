@@ -80,13 +80,13 @@ defineOptions({
          }
       ),
       heading: createField.text({
-         maxLength: 50,
+         maxLength: 120,
          placeholder: "Section heading",
          label: "Heading",
          group: "content",
       }),
       description: createField.text({
-         maxLength: 50,
+         maxLength: 240,
          placeholder: "Section description",
          label: "Description",
          group: "content",
@@ -109,11 +109,11 @@ defineOptions({
             group: "content",
          }
       ),
-      // info: createField.info({
-      //   label: 'How this block works',
-      //   description: 'This block fetches articles from the database and displays them in a grid.',
-      //   group: 'content',
-      // }),
+      info: createField.info({
+         label: "How this block works",
+         description: "This block fetches articles from the database and displays them in a grid.",
+         group: "content",
+      }),
       margin: createField.margin({ group: "appearance" }),
    },
 });

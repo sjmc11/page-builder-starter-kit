@@ -1,7 +1,7 @@
 <template>
    <div class="page-container py-8">
-      <div class="mx-auto max-w-prose text-center">
-         <h2 v-if="heading" class="text-xl font-bold text-gray-900">
+      <div :id="blockId" class="mx-auto max-w-prose text-center">
+         <h2 v-if="heading" class="@3xl:text-3xl text-xl font-bold text-gray-900">
             {{ heading }}
          </h2>
 
@@ -10,7 +10,7 @@
          </p>
       </div>
 
-      <div class="@lg:grid-cols-2 @5xl:grid-cols-3 relative z-10 mt-8 grid grid-cols-1 gap-8">
+      <div class="@lg:grid-cols-2 @5xl:grid-cols-3 @3xl:mt-12 relative z-10 mt-8 grid grid-cols-1 gap-8">
          <div
             v-for="(feature, featureIndex) in features"
             :key="`feature_${featureIndex}`"
@@ -91,6 +91,12 @@ defineOptions({
          }
       ),
       margin: createField.margin({ group: "appearance" }),
+      blockId: createField.text({
+         label: "Block ID",
+         placeholder: "features",
+         group: "settings",
+         description: "Apply a custom ID for anchor linking",
+      }),
    },
 });
 
@@ -103,6 +109,7 @@ withDefaults(
          description: string;
          icon: HeroIconName;
       }[];
+      blockId?: string;
    }>(),
    {
       heading: "Features for growth",
@@ -124,6 +131,7 @@ withDefaults(
             icon: "adjustments-vertical",
          },
       ],
+      blockId: () => Math.random().toString(36).substring(2, 15),
    }
 );
 </script>
